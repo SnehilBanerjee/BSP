@@ -44,8 +44,12 @@ li {
     float: left;
 }
 input{
-	height: 22px;
+	height: 20px;
 	width: 175px;
+}
+select{
+	height: 20px;
+	width: 170px;
 }
 
 li a {
@@ -67,7 +71,7 @@ button{
 <body>
 <!-- basic navbar template -->
 <center><h1>BHILAI STEEL PLANT</h1></center>
-<center><h2>Sign Up</h2></center>
+<center><h2>Home Page</h2></center>
 
 
 <ul>
@@ -82,23 +86,37 @@ button{
 <form name="Sign_UP" action="signUpPage.php" method="POST" >
 	<table border="1"> 
 		<tr>
-			<td>Username</td>
+			<td>User_ID</td>
 			<td><input type="text" name="user" required></td>
 		</tr>
 
 		<tr>
-			<td>Password</td>
-			<td><input type="password" name="pwd" required></td>
+			<td>Log_ID</td>
+			<td><input type="text" name="logID" required></td>
 		</tr>
 
 		<tr>
-			<td>Confirm Password</td>
-			<td><input type="password" required></td>
+			<td>Status</td>
+			<td><select value="I">
+				<option>I</option>
+				<option>P</option>
+				<option>C</option>
+				<option>X</option>
+			</select></td>
 		</tr>
 
 		<tr>
-			<td>Email-Id</td>
+			<td>Agency</td>
 			<td><input type="email" name="email"></td>
+		</tr>
+
+		<tr>
+			<td>Product_ID</td>
+			<td><input type="text" name="pID"></td>
+		</tr>
+		<tr>
+			<td>Product Description</td>
+			<td><input type="text" name="pdesc"></td>
 		</tr>
 
 		<tr>

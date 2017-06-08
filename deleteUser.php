@@ -60,6 +60,7 @@ li a {
 
 
 <ul>
+  <li><a href="homepage.php">Home Page</a></li>
   <li><a href="signUpPage.php">Create User</a></li>
   <li><a href="deleteUser.php">Delete User</a></li>
   <li><a href="displayRep.php">Display Reports</a></li>
