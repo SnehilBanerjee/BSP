@@ -3,19 +3,25 @@ include("conf.php");
 define('DATABASE','signup');
 $db=mysqli_connect(SERVER,USERNAME,PASSWORD,DATABASE);
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
-	$username=$_POST['user'];
-	$password=$_POST['pwd'];
-	$email=$_POST['email'];
-		  $sql="INSERT INTO  signup(name,pwd,email) VALUES ('$username', '$password', '$email')";
+	$userID=$_POST['user'];
+	$log=uniqid();
+	$t=date("y/m/d");
+
+	$status=$_POST['status'];
+	$Agency=$_POST['Agency'];
+	$prodID=$_POST['pID'];
+	$pdesc=$_POST['pdesc'];
+		  $sql="INSERT INTO  logdata(t,userID,logID,status,Agency,pID,pdesc) VALUES ('$t','$userID','$log', '$status','$Agency','$prodID','$pdesc')";
 	  $result = mysqli_query($db,$sql);
 }
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Sign Up</title>
 </head>
-<!-- style for the nav bar  -->
+<!-- style for the nav bar  -->	
 <style>
 body {margin:0;}
 
@@ -25,7 +31,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    position: fixed;
+    position: relative;
     top: 5;
     width: 100%;
 }
@@ -79,25 +85,27 @@ button{
   <li><a href="signUpPage.php">Create User</a></li>
   <li><a href="deleteUser.php">Delete User</a></li>
   <li><a href="displayRep.php">Display Reports</a></li>
-  <li><a href="updateLog.php">Update Log</a></li>
+  <li><a href="update_log.php">Update Log</a></li>
+    <li><a href="create_LOG.php">Create Log</a></li>
 </ul>
 <!-- end for nav bar -->
 
-<form name="Sign_UP" action="signUpPage.php" method="POST" >
+<form name="create_LOG" action="create_LOG.php" method="POST" >
 	<table border="1"> 
 		<tr>
-			<td>User_ID</td>
+			<td>UserID</td>
 			<td><input type="text" name="user" required></td>
 		</tr>
-
+<!-- 
 		<tr>
-			<td>Log_ID</td>
+			<td>LogID</td>
 			<td><input type="text" name="logID" required></td>
-		</tr>
+		</tr> -->
+
 
 		<tr>
 			<td>Status</td>
-			<td><select value="I">
+			<td><select value="I" name="status">
 				<option>I</option>
 				<option>P</option>
 				<option>C</option>
@@ -107,11 +115,11 @@ button{
 
 		<tr>
 			<td>Agency</td>
-			<td><input type="email" name="email"></td>
+			<td><input type="text" name="Agency"></td>
 		</tr>
 
 		<tr>
-			<td>Product_ID</td>
+			<td>ProductID</td>
 			<td><input type="text" name="pID"></td>
 		</tr>
 		<tr>

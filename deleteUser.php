@@ -64,7 +64,8 @@ li a {
   <li><a href="signUpPage.php">Create User</a></li>
   <li><a href="deleteUser.php">Delete User</a></li>
   <li><a href="displayRep.php">Display Reports</a></li>
-  <li><a href="updateLog.php">Update Log</a></li>
+  <li><a href="update_log.php">Update Log</a></li>
+    <li><a href="create_LOG.php">Create Log</a></li>
 </ul>
 
 

@@ -3,19 +3,24 @@ include("conf.php");
 define('DATABASE','signup');
 $db=mysqli_connect(SERVER,USERNAME,PASSWORD,DATABASE);
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
-	$username=$_POST['user'];
-	$password=$_POST['pwd'];
-	$email=$_POST['email'];
-		  $sql="INSERT INTO  signup(name,pwd,email) VALUES ('$username', '$password', '$email')";
+	$userID=$_POST['user'];
+	$log=uniqid();
+	$t=date("y/m/d");
+	$status=$_POST['status'];
+	$Agency=$_POST['Agency'];
+	$prodID=$_POST['pID'];
+	$pdesc=$_POST['pdesc'];
+		  $sql="UPDATE logdata SET t=$t,userID=$userID,logID=$log,status=$status,Agency=$Agency,pID=$prodID,pdesc=$pdesc where userID=$userID";
 	  $result = mysqli_query($db,$sql);
 }
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign Up</title>
+	<title>update</title>
 </head>
-<!-- style for the nav bar  -->
+<!-- style for the nav bar  -->	
 <style>
 body {margin:0;}
 
@@ -25,7 +30,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    position: fixed;
+    position: relative;
     top: 5;
     width: 100%;
 }
@@ -44,8 +49,12 @@ li {
     float: left;
 }
 input{
-	height: 22px;
+	height: 20px;
 	width: 175px;
+}
+select{
+	height: 20px;
+	width: 170px;
 }
 
 li a {
@@ -67,7 +76,7 @@ button{
 <body>
 <!-- basic navbar template -->
 <center><h1>BHILAI STEEL PLANT</h1></center>
-<center><h2>Sign Up</h2></center>
+<center><h2>Home Page</h2></center>
 
 
 <ul>
@@ -80,30 +89,45 @@ button{
 </ul>
 <!-- end for nav bar -->
 
-<form name="Sign_UP" action="signUpPage.php" method="POST" >
+<form name="update_LOG" action="update_log.php" method="POST" >
 	<table border="1"> 
 		<tr>
-			<td>Username</td>
+			<td>UserID</td>
 			<td><input type="text" name="user" required></td>
 		</tr>
+<!-- 
+		<tr>
+			<td>LogID</td>
+			<td><input type="text" name="logID" required></td>
+		</tr> -->
+
 
 		<tr>
-			<td>Password</td>
-			<td><input type="password" name="pwd" required></td>
+			<td>Status</td>
+			<td><select name="status">
+				<option value="I">I</option>
+				<option value="P">P</option>
+				<option value="C">C</option>
+				<option value="X">X</option>
+			</select></td>
 		</tr>
 
 		<tr>
-			<td>Confirm Password</td>
-			<td><input type="password" required></td>
+			<td>Agency</td>
+			<td><input type="text" name="Agency"></td>
 		</tr>
 
 		<tr>
-			<td>Email-Id</td>
-			<td><input type="email" name="email"></td>
+			<td>ProductID</td>
+			<td><input type="text" name="pID"></td>
+		</tr>
+		<tr>
+			<td>Product Description</td>
+			<td><input type="text" name="pdesc"></td>
 		</tr>
 
 		<tr>
-			<td colspan="2"><button type="submit" value="submit"> Sign Up</button></td>
+			<td colspan="2"><button type="submit" value="submit"> update</button></td>
 		</tr>
 	</table>
 </form>
