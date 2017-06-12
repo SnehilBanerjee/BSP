@@ -4,21 +4,23 @@ define('DATABASE','signup');
 $db=mysqli_connect(SERVER,USERNAME,PASSWORD,DATABASE);
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
 	$userID=$_POST['user'];
-	$log=uniqid();
-	$t=date("y/m/d");
+	// $t=date("y/m/d");
 	$status=$_POST['status'];
 	$Agency=$_POST['Agency'];
 	$prodID=$_POST['pID'];
 	$pdesc=$_POST['pdesc'];
-		  $sql="UPDATE logdata SET t=$t,userID=$userID,logID=$log,status=$status,Agency=$Agency,pID=$prodID,pdesc=$pdesc where userID=$userID";
+		  $sql="UPDATE logdata SET status='".$status."',Agency='".$Agency."',pID='".$prodID."',pdesc='".$pdesc."' WHERE userID='".$userID."'";
 	  $result = mysqli_query($db,$sql);
-}
-
+if(! $result ) {
+               die(mysql_error());
+            }
+} 
+// UPDATE table_name SET id ='".$id."', title = '".$title."',now() WHERE id = '".$id."' "
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>update</title>
+	<title>Sign Up</title>
 </head>
 <!-- style for the nav bar  -->	
 <style>
@@ -89,7 +91,7 @@ button{
 </ul>
 <!-- end for nav bar -->
 
-<form name="update_LOG" action="update_log.php" method="POST" >
+<form name="update_log" action="update_log.php" method="POST" >
 	<table border="1"> 
 		<tr>
 			<td>UserID</td>
@@ -104,7 +106,7 @@ button{
 
 		<tr>
 			<td>Status</td>
-			<td><select name="status">
+			<td><select  name="status">
 				<option value="I">I</option>
 				<option value="P">P</option>
 				<option value="C">C</option>
@@ -127,7 +129,7 @@ button{
 		</tr>
 
 		<tr>
-			<td colspan="2"><button type="submit" value="submit"> update</button></td>
+			<td colspan="2"><button type="submit" value="submit"> UPDATE</button></td>
 		</tr>
 	</table>
 </form>
