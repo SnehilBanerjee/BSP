@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>admin page </title>
+	<title>Homepage</title>
 </head>
 <style>
 body {margin:0;}
@@ -35,12 +35,10 @@ li a {
 
 
 <ul>
-  <li><a href="homepage.php">Home Page</a></li>
-  <li><a href="signUpPage.php">Create User</a></li>
-  <li><a href="deleteUser.php">Delete User</a></li>
-  <li><a href="display_Report.php">Display Reports</a></li>
-  <li><a href="update_log.php">Update Log</a></li>
-  <li><a href="create_LOG.php">Create Log</a></li>
+  <li><a href="userHomePage.php">Home Page</a></li>
+  <li><a href="userDisplayReport.php">Display Reports</a></li>
+  <li><a href="userupdateLog.php">Update Log</a></li>
+    <li><a href="userCreateLog.php">Create Log</a></li>
 
 </ul><!-- 
 <?php 

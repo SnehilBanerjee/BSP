@@ -6,8 +6,12 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 	$username=$_POST['user'];
 	$password=$_POST['pwd'];
 	$email=$_POST['email'];
-		  $sql="INSERT INTO  signup(name,pwd,email) VALUES ('$username', '$password', '$email')";
+	$remarks=$_POST['remarks'];
+		  $sql="INSERT INTO  signup(name,pwd,email,remarks) VALUES ('$username', '$password', '$email','$remarks')";
 	  $result = mysqli_query($db,$sql);
+	  if ($result) {
+	  	header("location: Homepage.php"); 
+	  }
 }
 ?>
 <!DOCTYPE html>
@@ -74,7 +78,7 @@ button{
   <li><a href="homepage.php">Home Page</a></li>
   <li><a href="signUpPage.php">Create User</a></li>
   <li><a href="deleteUser.php">Delete User</a></li>
-  <li><a href="displayRep.php">Display Reports</a></li>
+  <li><a href="display_Report.php">Display Reports</a></li>
   <li><a href="update_log.php">Update Log</a></li>
     <li><a href="create_LOG.php">Create Log</a></li>
 </ul>
@@ -100,6 +104,10 @@ button{
 		<tr>
 			<td>Email-Id</td>
 			<td><input type="email" name="email"></td>
+		</tr>
+		<tr>
+			<td>Remarks</td>
+			<td><input type ="text" name="remarks"></td>
 		</tr>
 
 		<tr>

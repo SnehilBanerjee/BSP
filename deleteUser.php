@@ -4,7 +4,8 @@ define('DATABASE','signup');
 $db=mysqli_connect(SERVER,USERNAME,PASSWORD,DATABASE);
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
 	$email=$_POST['email'];
-		  $sql="DELETE FROM signup WHERE email='$email'";
+  $user=$_POST['user'];
+		  $sql="DELETE FROM signup WHERE email='$email' and name='$user'";
 	  $result = mysqli_query($db,$sql);
 }
 ?>
@@ -63,7 +64,7 @@ li a {
   <li><a href="homepage.php">Home Page</a></li>
   <li><a href="signUpPage.php">Create User</a></li>
   <li><a href="deleteUser.php">Delete User</a></li>
-  <li><a href="displayRep.php">Display Reports</a></li>
+  <li><a href="display_Report.php">Display Reports</a></li>
   <li><a href="update_log.php">Update Log</a></li>
     <li><a href="create_LOG.php">Create Log</a></li>
 </ul>
@@ -72,7 +73,11 @@ li a {
  <form action="deleteUser.php" method="POST">
  	<TABLE border="1" align="center">
  		<tr>
- 		<td>enter the email</td>
+     <td>username</td>
+     <td><input type="text" name="user"></td> 
+    </tr>
+    <tr>
+ 		<td>email</td>
  		<td><input type="text" name="email"></td>
  		</tr>
  		<tr><td colspan="2" align="center">

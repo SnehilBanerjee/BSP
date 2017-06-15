@@ -1,5 +1,5 @@
 <?php  
-include("conf.php");
+include("../conf.php");
 define('DATABASE','signup');
 $db=mysqli_connect(SERVER,USERNAME,PASSWORD,DATABASE);
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -98,16 +98,14 @@ button{
 
 
 <ul>
-  <li><a href="homepage.php">Home Page</a></li>
-  <li><a href="signUpPage.php">Create User</a></li>
-  <li><a href="deleteUser.php">Delete User</a></li>
-  <li><a href="display_Report.php">Display Reports</a></li>
-  <li><a href="update_log.php">Update Log</a></li>
-    <li><a href="create_LOG.php">Create Log</a></li>
+  <li><a href="userHomePage.php">Home Page</a></li>
+  <li><a href="userDisplayReport.php">Display Reports</a></li>
+  <li><a href="userupdateLog.php">Update Log</a></li>
+    <li><a href="userCreateLOG.php">Create Log</a></li>
 </ul>
 <!-- end for nav bar -->
 
-<form name="create_LOG" action="create_LOG.php" method="POST" >
+<form name="create_LOG" action="userCreateLog.php" method="POST">
 	<table border="1"> 
 		<tr>
 			<td>UserID</td>

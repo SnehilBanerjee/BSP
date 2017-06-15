@@ -9,7 +9,15 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 	$Agency=$_POST['Agency'];
 	$prodID=$_POST['pID'];
 	$pdesc=$_POST['pdesc'];
-		  $sql="UPDATE logdata SET status='".$status."',Agency='".$Agency."',pID='".$prodID."',pdesc='".$pdesc."' WHERE userID='".$userID."'";
+	$priorty=$_POST['priorty'];
+	$equipID=$_POST['equipID'];
+	$equipType=$_POST['equipType'];
+	$equipMake=$_POST['equipMake'];
+	$equipModel=$_POST['equipModel'];
+	$location=$_POST['location'];
+	$enabled=$_POST['enabled'];
+	
+		  $sql="UPDATE logdata SET status='".$status."',Agency='".$Agency."',pID='".$prodID."',pdesc='".$pdesc."',priority='".$priorty."' WHERE userID='".$userID."'";
 	  $result = mysqli_query($db,$sql);
 if(! $result ) {
                die(mysql_error());
@@ -20,7 +28,7 @@ if(! $result ) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign Up</title>
+	<title>Update</title>
 </head>
 <!-- style for the nav bar  -->	
 <style>
@@ -85,9 +93,9 @@ button{
   <li><a href="homepage.php">Home Page</a></li>
   <li><a href="signUpPage.php">Create User</a></li>
   <li><a href="deleteUser.php">Delete User</a></li>
-  <li><a href="displayRep.php">Display Reports</a></li>
+  <li><a href="display_Report.php">Display Reports</a></li>
   <li><a href="update_log.php">Update Log</a></li>
-    <li><a href="create_LOG.php">Create Log</a></li>
+  <li><a href="create_LOG.php">Create Log</a></li>
 </ul>
 <!-- end for nav bar -->
 
@@ -129,8 +137,35 @@ button{
 		</tr>
 
 		<tr>
+			<td>Priorty</td>
+			<td><select value="low" name="priorty">
+				<option>low</option>
+				<option>medium</option>
+				<option>high</option>
+			</select></td>
+		</tr>
+
+		<tr>
+			<td>equipID</td>
+			<td><input type="text" name="equipID"></td>
+		</tr>
+		<tr>
+			<td>equipType</td>
+			<td><input type="text" name="equipType"></td>
+		</tr>
+		<tr><td>equipMake</td>
+		<td><input type="text" name="equipMake"></td></tr>
+		<tr><td>equip Model</td>
+		<td><input type="text" name="equipModel"></td></tr>
+		<tr><td>location</td>
+		<td><input type="text" name="location"></td></tr>
+		<tr><td>enabled</td>
+		<td><input type="text" name="enabled"></td></tr>
+		<tr>
+		<tr>
 			<td colspan="2"><button type="submit" value="submit"> UPDATE</button></td>
 		</tr>
+
 	</table>
 </form>
 </body>
