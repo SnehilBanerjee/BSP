@@ -24,18 +24,20 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 	$r = mysqli_query($db,$sql2);
       
       $count = mysqli_num_rows($r);
-      if($count == 1) { 
+      if($count == 1) {     
+      		
+	  		  
 
 		  $sql="INSERT INTO  logdata(t,userID,logID,status,Agency,pID,pdesc,priority) VALUES ('$t','$userID','$log', '$status','$Agency','$equipID','$pdesc','$priorty')";
 	  $result = mysqli_query($db,$sql);
 	  $sq="INSERT INTO  history(t,userID,logID,logSerial,pdesc) VALUES ('$t','$userID','$log','$serial','$pdesc')";
 	  $r2 = mysqli_query($db,$sq);
-	   $logDetails="log-ID:".$log."\n Date:".$t."\n Agency:".$Agency."\n Problem Discription:".$pdesc."\n Equipment-ID:".$equipID;
+	  $logDetails="log-ID:".$log."\n Date:".$t."\n Agency:".$Agency."\n Problem Discription:".$pdesc."\n Equipment-ID:".$equipID;
 	  // $result2 = mysqli_query($db,$sq1);
-	    $a=mail($email, 'Complain logged', $logDetails);
-	  echo "<script> alert('successfully logged the problem and sent an email')</script>";
+	  $a=mail($email, 'Complain logged', $logDetails);
+	    echo "<script> alert('successfully logged the problem and sent an email')</script>";
 	  			header("refresh:0");
-	  }	
+	    }	
 	  		  else{
 	  		  echo "<script> alert('unsuccessfull')</script>";
 	  			header("refresh:0");
@@ -51,9 +53,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 </head>
 <!-- style for the nav bar  -->	
 <style>
-body {margin:0;
- background-color: grey;}
-
+body{
+	margin: 0;
+	background-color: grey;
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -118,17 +121,20 @@ button{
 
 
 <ul>
-  <li><a href="userHomePage.php">Home Page</a></li>
-    <li><a href="userCreateLog.php">Create Log</a></li>
-    <li><a href="userDisplayReports.php">Display</a></li>
-    <li><a href="user_history.php">Update Logs</a></li>
-    <li><a href="changepwd.php">Change Password</a></li>
+    <li><a href="homepage.php">Home Page</a></li>
+    <li><a href="signUpPage.php">Create User</a></li>
+    <li><a href="deleteUser.php">Delete User</a></li>
+    <li><a href="create_LOG.php">Create Log</a></li>
+    <li><a href="adminDisplayReport.php">Display Reports</a></li>
+	<li><a href="admin_history.php">Update Logs</a></li>    
+    <li><a href="updateEquipments.php">Updates Equipments</a></li>
+    <li><a href="changePWD.php">Change Password</a></li>
     <li><a href="../unset.php"> Sign Out </a></li>
-
+   
 </ul>
 <!-- end for nav bar -->
 
-<form name="create_LOG" action="userCreateLog.php" method="POST">
+<form name="create_LOG" action="create_LOG.php" method="POST">
 	<table border="1" > 
 	<tr><td>User-ID</td>
 		<td><?php echo $userID; ?></td>

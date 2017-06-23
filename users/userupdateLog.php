@@ -27,8 +27,7 @@ if(! $result ) {
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Update</title>
+<head>	<title>Update</title>
 </head>
 <!-- style for the nav bar  -->	
 <style>
@@ -48,7 +47,7 @@ ul {
 table{
 	position:absolute;
 	left: 5%;
-	top:30%;
+	top:60%;
 	width: 25%;
 	text-align: center;
 	font-size: 22px;
@@ -85,8 +84,8 @@ button{
 <!-- style for navbar end here -->
 <body>
 <!-- basic navbar template -->
-<center><h1>BHILAI STEEL PLANT</h1></center>
-<center><h2>Home Page</h2></center>
+
+<center><h1>Home Page</h1></center>
 
 
 <ul>

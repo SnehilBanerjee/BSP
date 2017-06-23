@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><style>
 	<title>Homepage</title>
 </head>
 <style>
-body {margin:0;}
+body {
+    margin:0;
+    background-color: grey;
+ }
 
 ul {
     list-style-type: none;
@@ -20,7 +23,9 @@ ul {
 li {
     float: left;
 }
-
+h1{
+    font-size: 50px;
+}
 li a {
     display: block;
     color: white;
@@ -28,20 +33,27 @@ li a {
     padding: 24px 26px;
     text-decoration: none;
 }
+img{
+   position: relative;
+   height: 20%;
+   width: 35%;
+   left: 35%;
+   top:5%;
+}
 </style>
 <body>
-<center><h1>BHILAI STEEL PLANT</h1></center>
-<center><h2>Home Page</h2></center>
+<img src="../BSP.jpg">
+<center><h1>Home Page</h1></center>
 
 
 <ul>
   <li><a href="userHomePage.php">Home Page</a></li>
-  <li><a href="userDisplayReport.php">Display Reports</a></li>
-  <li><a href="userupdateLog.php">Update Log</a></li>
     <li><a href="userCreateLog.php">Create Log</a></li>
+    <li><a href="userDisplayReports.php">Display</a></li>
+    <li><a href="user_history.php">Update Logs</a></li>
+    <li><a href="changepwd.php">Change Password</a></li>
+    <li><a href="../unset.php"> Sign Out </a></li>
 
-</ul><!-- 
-<?php 
-print phpinfo(); ?> -->
+</ul>
 </body>
 </html>
